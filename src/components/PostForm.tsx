@@ -36,31 +36,31 @@ export default function PostForm() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+    <div className="bg-card rounded-xl shadow-sm border border-card-border p-4 mb-6 transition-colors duration-200">
       <form onSubmit={handleSubmit}>
         <div className="flex gap-3">
           {user.photoURL ? (
             <img src={user.photoURL} alt="User" className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-gray-200 shrink-0 shadow-sm" />
+            <div className="w-10 h-10 rounded-full bg-icon-hover shrink-0 shadow-sm" />
           )}
           <div className="flex-1">
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="いまどうしてる？"
-              className="w-full resize-none border-none outline-none text-lg placeholder-gray-400 bg-transparent min-h-[80px]"
+              className="w-full resize-none border-none outline-none text-lg text-text placeholder-icon bg-transparent min-h-[80px]"
               maxLength={280}
               disabled={loading}
             />
-            <div className="flex items-center justify-between border-t border-gray-100 pt-3 mt-2">
-              <span className="text-sm text-gray-400 font-medium">
+            <div className="flex items-center justify-between border-t border-card-border pt-3 mt-2">
+              <span className="text-sm text-icon font-medium">
                 {280 - text.length}
               </span>
               <button
                 type="submit"
                 disabled={!text.trim() || loading}
-                className="flex items-center gap-2 px-6 py-2 bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 text-white rounded-full font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+                className="flex items-center gap-2 px-6 py-2 bg-btn hover:bg-btn-hover focus:ring-2 focus:ring-btn/50 text-btn-text rounded-full font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
               >
                 <span>投稿する</span>
                 <Send className="w-4 h-4 ml-1" />
